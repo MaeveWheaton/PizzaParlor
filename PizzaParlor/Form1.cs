@@ -35,21 +35,21 @@ namespace PizzaParlor
             try
             {
                 numberTopping = Convert.ToDouble(numberToppingInput.Text);
+
+                //calculate price of pizza
+                totalPrice = basePizzaPrice + numberTopping * perToppingPrice;
+
+                //display total price
+                priceOutputLabel.ForeColor = Color.Black;
+                priceOutputLabel.Text = $"The price of a pizza with {numberTopping} toppings is:";
+                priceOutputLabel.Text += $"\n{totalPrice.ToString("C")}";
             }
             //error message if letters entered
             catch
             {
                 priceOutputLabel.ForeColor = Color.Red;
-                priceOutputLabel.Text = "Error: please enter a number.";
+                priceOutputLabel.Text = "Error: Value entered is not a number.";
             }
-
-            //calculate price of pizza
-            totalPrice = basePizzaPrice + numberTopping * perToppingPrice;
-
-            //display total price
-            priceOutputLabel.ForeColor = Color.Black;
-            priceOutputLabel.Text = $"The price of a pizza with {numberTopping} toppings is:";
-            priceOutputLabel.Text += $"\n{totalPrice.ToString("C")}";
         }
     }
 }
